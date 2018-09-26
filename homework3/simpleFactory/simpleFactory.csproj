@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{78808A9E-05B7-4FBC-8BED-B225C39925C7}</ProjectGuid>
+    <ProjectGuid>{AC29C6DB-F3C9-456B-AD89-7D986A4C5F28}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>homework3</RootNamespace>
-    <AssemblyName>homework3</AssemblyName>
+    <RootNamespace>simpleFactory</RootNamespace>
+    <AssemblyName>simpleFactory</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

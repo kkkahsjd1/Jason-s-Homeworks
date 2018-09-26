@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace homework3
+namespace simpleFactory
 {
     class program
     {
@@ -13,7 +13,7 @@ namespace homework3
             Console.Write("请输入你想创建的图形：");
             String shape = Console.ReadLine();
             Figure f1 = Factory.createFigure(shape);
-            Console.WriteLine("图形面积为： "+f1.Getarea());
+            Console.WriteLine("图形面积为： " + f1.Getarea());
 
         }
     }
@@ -23,25 +23,25 @@ namespace homework3
         public abstract double Getarea();
     }
     //三角形类
-    class Triangle :Figure
+    class Triangle : Figure
     {
         double x, y, z;
         double area;
-        public Triangle(double x,double y ,double z)
+        public Triangle(double x, double y, double z)
         {
-           
+
             this.x = x;
             this.y = y;
             this.z = z;
-            double p = (x + y + z ) / 2;
+            double p = (x + y + z) / 2;
             this.area = Math.Sqrt(p * (p - x) * (p - y) * (p - z));
         }
-        
+
         public override double Getarea()
         {
             return this.area;
         }
-        
+
     }
     //圆类
     class Circle : Figure
@@ -51,9 +51,9 @@ namespace homework3
         public Circle(double radius)
         {
             this.radius = radius;
-            this.area = 3.14 *radius *radius;
+            this.area = 3.14 * radius * radius;
         }
-        
+
         public override double Getarea()
         {
             return this.area;
@@ -79,7 +79,7 @@ namespace homework3
     //矩形类
     class Rectangular : Figure
     {
-        
+
         double width;
         double length;
         double area;
@@ -164,13 +164,14 @@ namespace homework3
                     return new Rectangular(width, length);
                 }
             }
-            else {
+            else
+            {
                 Console.WriteLine("数据无效");
                 return null;
             }
-     
-           
-            
+
+
+
         }
 
     }

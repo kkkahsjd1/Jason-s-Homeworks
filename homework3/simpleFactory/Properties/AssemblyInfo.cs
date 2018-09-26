@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("homework3")]
+[assembly: AssemblyTitle("simpleFactory")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("homework3")]
+[assembly: AssemblyProduct("simpleFactory")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("78808a9e-05b7-4fbc-8bed-b225c39925c7")]
+[assembly: Guid("ac29c6db-f3c9-456b-ad89-7d986a4c5f28")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
