@@ -24,7 +24,7 @@ namespace Form1
         }
 
         private Graphics graphics;
-        double th1 = 20 * Math.PI / 180;
+        double th1 = 60 * Math.PI / 180;
         double th2 = 60 * Math.PI / 180;
         double per1 = 0.7;
         double per2 = 0.5;
