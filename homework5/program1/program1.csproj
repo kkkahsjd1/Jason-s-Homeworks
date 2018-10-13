@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AAF01A55-347B-463F-B5A4-A50B8C8ED8D5}</ProjectGuid>
+    <ProjectGuid>{89AD6435-2B17-4BD5-BB1C-F58501CB63A4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Program2</RootNamespace>
-    <AssemblyName>Program2</AssemblyName>
+    <RootNamespace>program1</RootNamespace>
+    <AssemblyName>program1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,6 +45,7 @@
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetails.cs" />
     <Compile Include="OrderService.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
