@@ -10,6 +10,7 @@ namespace WindowsForms
     public class OrderService
     {
         private static List<OrderDetails> list = new List<OrderDetails>();
+        
         //add order into list
         public static List<OrderDetails> GetList()
         {
@@ -23,10 +24,27 @@ namespace WindowsForms
             else
                 return true;
         }
-
+        
+        public static string Setnum()
+        {
+            string p1 = DateTime.Now.ToString("yyyyMMdd") + "000";
+            if (list.Count == 0)
+            {
+                return DateTime.Now.ToString("yyyyMMdd") + "001";
+            }
+            else if (Int64.Parse(list[list.Count - 1].No) < Int64.Parse(p1))
+            {
+                return DateTime.Now.ToString("yyyyMMdd") + "001";
+            }
+            else
+            {
+                return (Int64.Parse(list[list.Count - 1].No) + 1).ToString();
+            }
+        }
         public static void AddOrder(Customer cus, OrderDetails order)
         {
-            if (((Product.products.Find(a => a.Goods == order.Product)) != null) && (cus != null) && NoInnerTest(list, order))
+
+            if (((Product.products.Find(a => a.Goods == order.Product)) != null) && (cus != null))
             {
                 foreach (Product a in Product.products)
                 {
@@ -39,9 +57,13 @@ namespace WindowsForms
                     }
                 }
             }
+            else if (Product.products.Find(a => a.Goods == order.Product) == null)
+            {
+                throw new Exception("不存在该商品");
+            }
             else
             {
-                throw new ArgumentOutOfRangeException("mission failed");
+                throw new Exception("Mission Failed!");
             }
         }
         //seek order by name
@@ -82,29 +104,33 @@ namespace WindowsForms
                 Console.WriteLine("您要查找的订单：");
                 Console.WriteLine(a);
             }
-            return list.Find(c => c.Product == Product);
+            return list.Find(c=>c.Product==Product);
         }
         //delete order by num
         public static void DeleteAsNum(int num)
         {
             try
             {
-                for (int i = 0; list[i] != null; i++)
-                {
-                    if (list[i].Num == num)
-                    {
-                        list.Remove(list[i]);
-                        Console.WriteLine($"订单号为：{num}的订单删除成功");
-                    }
-                }
+                list.Remove(list.Find(c => c.Num == num));
+                Console.WriteLine($"序列号为：{num}的订单删除成功");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception caught: ", e);
             }
         }
-        //1 for descending, 0 for ascending
-        //1 for morethan and equals, 0 for lessthan and equals
+        public static void DeleteAsNo(string no)
+        {
+            try
+            {
+                list.Remove(list.Find(c => c.No == no));
+                Console.WriteLine($"订单号为：{no}的订单删除成功");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception caught: ", e);
+            }
+        }
         public static void SeekAsPrice(int price, int order, int index)
         {
             if (order == 1)
@@ -175,14 +201,9 @@ namespace WindowsForms
         {
             try
             {
-                for (int i = 0; list[i] != null; i++)
-                {
-                    if (list[i].Client == name)
-                    {
-                        list.Remove(list[i]);
-                        Console.WriteLine($"用户名为：{name}的订单删除成功");
-                    }
-                }
+                list.Remove(list.Find(c => c.Client == name));
+                Console.WriteLine($"用户名为：{name}的订单删除成功");
+                
             }
             catch
             {
@@ -194,14 +215,9 @@ namespace WindowsForms
         {
             try
             {
-                for (int i = 0; list[i] != null; i++)
-                {
-                    if (list[i].Product == Product)
-                    {
-                        list.Remove(list[i]);
-                        Console.WriteLine($"商品为：{Product}的订单删除成功");
-                    }
-                }
+                list.Remove(list.Find(c => c.Product == Product));
+                Console.WriteLine($"商品为：{Product}的订单删除成功");
+
             }
             catch
             {
@@ -274,7 +290,7 @@ namespace WindowsForms
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Exception:{e.ToString()}");
+                throw new Exception(e.Message);
             }
         }
         //反序列化
@@ -296,36 +312,6 @@ namespace WindowsForms
             }
 
         }
-        public override bool Equals(Object obj)
-        {
-            if (obj.GetType() == typeof(string))
-            {
-                int n = obj.ToString().Length;                               /**                 * 判断传入的字符串长度是否相等，anotherString对象调用成员变量char类型的value数组，调用得到value数组长度                 */
-                if (n == this.ToString().Length)
-                {
-                    char[] v1 = Convert.ToString(obj).ToCharArray();
-                    char[] v2 = Convert.ToString(this).ToCharArray();
-                    int i = 0;
-                    while (n-- != 0)
-                    {
-                        if (v1[i] != v2[i])
-                            return false;
-                        i++;
-                    }
-                    return true;
-                }
-                else
-                    return false;
-
-            }
-            else
-                return false;
-            
-        }
-            
-            
-       
-
-
+        
     }      
 }

@@ -30,21 +30,26 @@ namespace WindowsForms
             Customer customer1 = new Customer("lry", "13092787491");
             Customer customer2= new Customer("ljh", "13274574319");
             Customer customer3 = new Customer("lgr", "13092783343");
-            Product.AddProducts(new Product("banana", 10030));
-            Product.AddProducts(new Product("apple", 11299));
+            Product.AddProducts(new Product("banana", 20));
+            Product.AddProducts(new Product("apple", 29));
             Product.AddProducts(new Product("computer", 8939));
-            Product.AddProducts(new Product("laptop", 12000));
-            Product.AddProducts(new Product("earphone", 13000));
-            OrderDetails a1 = new OrderDetails("20181111829", "banana", 7);
-            OrderDetails a2 = new OrderDetails("20181111423", "apple", 2);
-            OrderDetails a3 = new OrderDetails("20181111859", "computer", 3);
-            OrderDetails a4 = new OrderDetails("20181111821", "laptop", 5);
-            OrderDetails a5 = new OrderDetails("20181111800", "earphone", 6);
-            OrderService.AddOrder(customer1,a1);
+            Product.AddProducts(new Product("laptop", 12050));
+            Product.AddProducts(new Product("earphone", 130));
+            OrderDetails a1 = new OrderDetails( "banana", 7);
+            OrderService.AddOrder(customer1, a1);
+            OrderDetails a2 = new OrderDetails( "apple", 2);
             OrderService.AddOrder(customer1, a2);
+            OrderDetails a3 = new OrderDetails( "computer", 3);
             OrderService.AddOrder(customer2, a3);
+            OrderDetails a4 = new OrderDetails( "laptop", 5);
             OrderService.AddOrder(customer3, a4);
+            OrderDetails a5 = new OrderDetails( "earphone", 6);
             OrderService.AddOrder(customer3, a5);
+
+
+
+
+
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -88,6 +93,20 @@ namespace WindowsForms
                 orderDetailsBindingSource1.DataSource =
                    OrderService.GetList().Where(s => s.Product == KeyWord1);
                 
+            }
+            else if (comboBox1.SelectedItem.ToString() == "PhoneNum")
+            {
+                textBox1.ReadOnly = false;
+                orderDetailsBindingSource1.DataSource =
+                   OrderService.GetList().Where(s => s.PhoneNum == KeyWord1);
+
+            }
+            else if (comboBox1.SelectedItem.ToString() == "No")
+            {
+                textBox1.ReadOnly = false;
+                orderDetailsBindingSource1.DataSource =
+                   OrderService.GetList().Where(s => s.No == KeyWord1);
+
             }
             else if (comboBox1.SelectedItem.ToString() == "Price")
             {
@@ -169,27 +188,11 @@ namespace WindowsForms
             }
         }
 
+        
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {
-                //选中的行数
-                //int iCount = dataGridView1.SelectedRows.Count;
-                //if (iCount < 1)
-                //{
-                //    MessageBox.Show("Delete Data Fail!", "Error", MessageBoxButtons.OK,
-                //       MessageBoxIcon.Error);
-                //    return;
-                //}
-                //if (DialogResult.Yes == MessageBox.Show("是否删除选中的数据？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
-                //{
-                //    for (int i = 0; i < this.dataGridView1.Rows.Count-1; i++)  
-                //    {
-                //        if (true == this.dataGridView1.Rows[i].Selected)
-                //            this.dataGridView1.Rows.RemoveAt(i);
-                //    }
-                //}
-
+            { 
                 foreach (DataGridViewRow r in dataGridView1.SelectedRows)
                 {
                     if (!r.IsNewRow)
@@ -203,7 +206,11 @@ namespace WindowsForms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        public void UpdateData()
+        {
+            this.orderDetailsBindingSource1.ResetBindings(false);
+            
+        }
         private void orderServiceBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -212,6 +219,15 @@ namespace WindowsForms
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Add1_Click(object sender, EventArgs e)
+        {
+            
+            Form2 form2 = new Form2();
+            form2.Owner = this;
+            form2.Show();
+            this.Hide();
         }
     }
 }
