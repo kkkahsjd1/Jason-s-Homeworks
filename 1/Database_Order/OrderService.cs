@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-namespace WindowsForms
+namespace Database_Order
 {
     public class OrderService
     {

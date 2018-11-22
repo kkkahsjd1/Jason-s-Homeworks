@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Text.RegularExpressions;
-namespace WindowsForms
+namespace Database_Order
 {
     public class OrderDetails : Order
     {

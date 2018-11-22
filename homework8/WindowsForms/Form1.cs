@@ -19,7 +19,7 @@ namespace WindowsForms
         {
             InitializeComponent();
             InitialData();
-            orderDetailsBindingSource1.DataSource = OrderService.GetList();
+            orderDetailsBindingSource.DataSource = OrderService.GetList();
             textBox1.DataBindings.Add("Text", this, "KeyWord1");
             textBox2.DataBindings.Add("Text", this, "KeyWord2");
             textBox3.DataBindings.Add("Text", this, "KeyWord3");    
@@ -45,6 +45,7 @@ namespace WindowsForms
             OrderService.AddOrder(customer3, a4);
             OrderDetails a5 = new OrderDetails( "earphone", 6);
             OrderService.AddOrder(customer3, a5);
+            OrderService.Export("orderlist.xml");
 
 
 
@@ -76,35 +77,35 @@ namespace WindowsForms
             if (comboBox1.SelectedItem.ToString() == "Client")
             {
                 textBox1.ReadOnly = false;
-                orderDetailsBindingSource1.DataSource =
+                orderDetailsBindingSource.DataSource =
                    OrderService.GetList().Where(s => s.Client == KeyWord1);
                 
             }
             else if (comboBox1.SelectedItem.ToString() == "Num" )
             {
                 textBox1.ReadOnly = false;
-                orderDetailsBindingSource1.DataSource =
+                orderDetailsBindingSource.DataSource =
                    OrderService.GetList().Where(s => s.Num == uint.Parse(KeyWord1));
                
             }
             else if (comboBox1.SelectedItem.ToString() == "Product")
             {
                 textBox1.ReadOnly = false;
-                orderDetailsBindingSource1.DataSource =
-                   OrderService.GetList().Where(s => s.Product == KeyWord1);
+                orderDetailsBindingSource.DataSource =
+                   OrderService.GetList().Where(s => s.Goods == KeyWord1);
                 
             }
             else if (comboBox1.SelectedItem.ToString() == "PhoneNum")
             {
                 textBox1.ReadOnly = false;
-                orderDetailsBindingSource1.DataSource =
+                orderDetailsBindingSource.DataSource =
                    OrderService.GetList().Where(s => s.PhoneNum == KeyWord1);
 
             }
             else if (comboBox1.SelectedItem.ToString() == "No")
             {
                 textBox1.ReadOnly = false;
-                orderDetailsBindingSource1.DataSource =
+                orderDetailsBindingSource.DataSource =
                    OrderService.GetList().Where(s => s.No == KeyWord1);
 
             }
@@ -113,7 +114,7 @@ namespace WindowsForms
                 textBox1.ReadOnly = false;
                 if (KeyWord2 == null)
                 {
-                    orderDetailsBindingSource1.DataSource = from n in OrderService.GetList()
+                    orderDetailsBindingSource.DataSource = from n in OrderService.GetList()
                                                            where n.Price <= uint.Parse(KeyWord3)
                                                            orderby n.Price descending
                                                            select n;
@@ -121,7 +122,7 @@ namespace WindowsForms
                 }
                 if(KeyWord3 == null)
                 {
-                    orderDetailsBindingSource1.DataSource = from n in OrderService.GetList()
+                    orderDetailsBindingSource.DataSource = from n in OrderService.GetList()
                                                            where  n.Price >= uint.Parse(KeyWord2)
                                                            orderby n.Price descending
                                                            select n;
@@ -129,7 +130,7 @@ namespace WindowsForms
                 }
                 if (KeyWord3 != null && KeyWord2 != null && uint.Parse(KeyWord3) > uint.Parse(KeyWord2))
                 {
-                    orderDetailsBindingSource1.DataSource = from n in OrderService.GetList()
+                    orderDetailsBindingSource.DataSource = from n in OrderService.GetList()
                                                            where (n.Price <= uint.Parse(KeyWord3)) && (n.Price >= uint.Parse(KeyWord2))
                                                            orderby n.Price descending
                                                            select n;
@@ -208,7 +209,7 @@ namespace WindowsForms
         }
         public void UpdateData()
         {
-            this.orderDetailsBindingSource1.ResetBindings(false);
+            this.orderDetailsBindingSource.ResetBindings(false);
             
         }
         private void orderServiceBindingSource_CurrentChanged(object sender, EventArgs e)

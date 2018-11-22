@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<OrderDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhoneNum>13092787491</PhoneNum>
+  <Num>0</Num>
+  <Client>lry</Client>
+  <Goods>banana</Goods>
+  <Price>20</Price>
+  <Amount>7</Amount>
+  <Total>140</Total>
+  <No>20181117001</No>
+</OrderDetails><?xml version="1.0"?>
+<OrderDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhoneNum>13092787491</PhoneNum>
+  <Num>1</Num>
+  <Client>lry</Client>
+  <Goods>apple</Goods>
+  <Price>29</Price>
+  <Amount>2</Amount>
+  <Total>58</Total>
+  <No>20181117002</No>
+</OrderDetails><?xml version="1.0"?>
+<OrderDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhoneNum>13274574319</PhoneNum>
+  <Num>2</Num>
+  <Client>ljh</Client>
+  <Goods>computer</Goods>
+  <Price>8939</Price>
+  <Amount>3</Amount>
+  <Total>26817</Total>
+  <No>20181117003</No>
+</OrderDetails><?xml version="1.0"?>
+<OrderDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhoneNum>13092783343</PhoneNum>
+  <Num>3</Num>
+  <Client>lgr</Client>
+  <Goods>laptop</Goods>
+  <Price>12050</Price>
+  <Amount>5</Amount>
+  <Total>60250</Total>
+  <No>20181117004</No>
+</OrderDetails><?xml version="1.0"?>
+<OrderDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhoneNum>13092783343</PhoneNum>
+  <Num>4</Num>
+  <Client>lgr</Client>
+  <Goods>earphone</Goods>
+  <Price>130</Price>
+  <Amount>6</Amount>
+  <Total>780</Total>
+  <No>20181117005</No>
+</OrderDetails>
